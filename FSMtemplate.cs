@@ -68,7 +68,8 @@ public class FSMTemplate : MonoBehaviour
         // state update 
         yield return tick;
 
-        // restart the state, main update only
+        // restart the state, running update only
+        yield return null;
         stateRoutine = StartCoroutine(State_Idle(false, false));
     }
 
@@ -88,6 +89,7 @@ public class FSMTemplate : MonoBehaviour
         print("spinning...");
         yield return tick;
 
+        yield return null;  
         stateRoutine = StartCoroutine(State_Spin(false, false));
     }
 
@@ -107,6 +109,7 @@ public class FSMTemplate : MonoBehaviour
         print("wandering...");
         yield return tick;
 
+        yield return null;
         stateRoutine = StartCoroutine(State_Wander(false, false));
     }
 
@@ -125,6 +128,7 @@ public class FSMTemplate : MonoBehaviour
         print("jumping...");
         yield return tick;
 
+        yield return null;
         stateRoutine = StartCoroutine(State_Jump(false, false));
     }
 }
